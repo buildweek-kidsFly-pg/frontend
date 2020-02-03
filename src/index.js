@@ -3,4 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+//REDUX
+import { applyMiddleware, createStore } from 'redux';
+import logger from 'redux-logger';
+
+ReactDOM.render(<App />, document.getElementById('root')); 
