@@ -1,8 +1,9 @@
 import React  from "react";
+import { withFormik, Form, Field} from "formik";
+import * as Yup from "yup";
 
 
-
-const LogIn = () => {
+const LogIn = ({values, errors, touched, status}) => {
   const handleSubmit = event => {
     event.perventDefault();
   }
@@ -10,22 +11,31 @@ const LogIn = () => {
 
 return (
   <div className="login">
-    <form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit}>
       <h2>Log In</h2>
-      <input
+      <Field
       name="username"
       type="text"
       placeholder="Username"
       />
-      <input
+      {touched.username && errors.username && (<p>{errors.username}</p>)}
+      <Field
       name="password"
       type="password"
       placeholder="password"
       />
+      {touched.password && errors.password (<p>{errors.password}</p>)}
       <button type="submit">Log In</button>
-    </form>
+    </Form>
   </div>
 )
 }
 
-export default LogIn
+const FormikLogIn = withFormik({
+  calidationSchema: Yup.object().shape({
+    username: Yup.string().required("Please enter your username."),
+    password: Yup.string().required("Please enter your password")
+  })
+})(LogIn)
+
+export default FormikLogIn
