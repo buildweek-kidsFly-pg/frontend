@@ -7,6 +7,7 @@ import App from './App';
 import { applyMiddleware, createStore } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
+import thunk from 'redux-thunk';
 import { usersReducer } from './reducers';
 
 
