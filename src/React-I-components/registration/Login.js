@@ -23,7 +23,6 @@ return (
       placeholder="password"
       />
       <button type="submit">Log In</button>
-      {/* <Link className="link" to="/signup"> Don't have an account? Register here</Link> */}
     </form>
   </div>
 )

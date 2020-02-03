@@ -36,7 +36,6 @@ const SignUp = () => {
         placeholder="(123) 456-7890"
         />
         <button type="submit">Sign Up</button>
-        {/* <Link to="login">Already have an account? Log in here.</Link> */}
       </form>
     </div>
   )
