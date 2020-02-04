@@ -5,7 +5,7 @@ import * as Yup from "yup";
 import axiosWithAuth from "../../components/Auth/axiosWithAuth";
 
 
-const LogIn = ({values, errors, touched, status}) => {
+const LogIn = ({values, errors, touched, status}, props) => {
   // REACT II
   const [userState, setUserState] = useState({
     username:'',
@@ -20,7 +20,7 @@ const LogIn = ({values, errors, touched, status}) => {
       .then(res => {
         console.log(res);
         window.localStorage.setItem("token", res.data.payload);
-        // props.history.push('')
+        props.history.push('/admin')
       })
       .catch(err => console.log(err));
   }
@@ -38,20 +38,20 @@ return (
       <h2>Log In</h2>
 
       <Field
-      name="username"
-      type="text"
-      placeholder="Username"
-      value={userState.username}
-      onChange={handleChanges}
+        name="username"
+        type="text"
+        placeholder="Username"
+        value={userState.username}
+        onChange={handleChanges}
       />
       {touched.username && errors.username && (<p>{errors.username}</p>)}
 
       <Field
-      name="password"
-      type="password"
-      placeholder="password"
-      value={userState.password}
-      onChange={handleChanges}
+        name="password"
+        type="password"
+        placeholder="password"
+        value={userState.password}
+        onChange={handleChanges}
       />
       {touched.password && errors.password && (<p>{errors.password}</p>)}
       <button type="submit">Log In</button>

@@ -4,7 +4,7 @@ import * as Yup from "yup";
 
 import axios from 'axios';
 
-const SignUp = ({ values, errors, touched, status }) => {
+const SignUp = ({ values, errors, touched, status }, props) => {
     const [userState, setUserState] = useState({
         firstName:'',
         lastName:'',
@@ -23,8 +23,8 @@ const SignUp = ({ values, errors, touched, status }) => {
           .post('https://reqres.in/api/users', userState)
           .then(res => {
             console.log(res);
-            // window.localStorage.setItem("token", res.data.payload);
-            // props.history.push('')
+            window.localStorage.setItem("token", res.data.payload);
+            props.history.push('/admin')
           })
           .catch(err => console.log(err));
         }
