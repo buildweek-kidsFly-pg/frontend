@@ -4,9 +4,9 @@ export default function() {
     const token = localStorage.getItem('token');
 
     return axios.create({
-        baseURL: '',
+        baseURL: 'https://reqres.in/api/',
         headers: {
-            'Authorization': token,
+            'Authorization': token
         }
     })
-}
+} 

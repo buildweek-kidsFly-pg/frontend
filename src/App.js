@@ -1,5 +1,8 @@
 import React from 'react';
 import './App.css';
+import { Route, Switch, Link } from "react-router-dom";
+
+//COMPONENTS
 import LogIn from "./React-I-components/registration/Login";
 import SignUp from "./React-I-components/registration/Signup";
 import AssistSignUp from "./React-I-components/registration/AssistSignUp";
