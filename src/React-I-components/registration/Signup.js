@@ -1,11 +1,38 @@
-import React from "react";
+import React, {useState} from "react";
 import {withFormik, Form, Field} from "formik";
 import * as Yup from "yup";
 
-const SignUp = ({ values, errors, touched, status }) => {
-  const handleSubmit = event => {
-      event.preventDefault();
-  }
+import axios from 'axios';
+
+const SignUp = ({ values, errors, touched, status }, props) => {
+    const [userState, setUserState] = useState({
+        firstName:'',
+        lastName:'',
+        username:'',
+        email:'',
+        password: '',
+        address:'',
+        phone:'',
+        airport:''
+    });
+    
+      const handleSubmit = event => {
+        event.preventDefault();
+        // REACT II
+        axios
+          .post('https://reqres.in/api/users', userState)
+          .then(res => {
+            console.log(res);
+            window.localStorage.setItem("token", res.data.payload);
+            props.history.push('/admin')
+          })
+          .catch(err => console.log(err));
+        }
+        
+        const handleChanges = e => {
+            setUserState({...userState, [e.target.name]: e.target.value});
+        }
+    
 
   return (
       <div className='registration'>
@@ -15,8 +42,10 @@ const SignUp = ({ values, errors, touched, status }) => {
               
               <Field 
               name="firstName"
-              type="text"
+              type="text" 
               placeholder="First Name"
+              onChange={handleChanges}
+              value={userState.firstName}
               />
               {touched.firstName && errors.firstName && (<p>{errors.firstName}</p>)}
 
@@ -24,6 +53,9 @@ const SignUp = ({ values, errors, touched, status }) => {
               name="lastName"
               type="text"
               placeholder="Last Name"
+              value={userState.lastName}
+              onChange={handleChanges}
+
               />
               {touched.lastName && errors.lastName && (<p>{errors.lastName}</p>)}
 
@@ -31,6 +63,8 @@ const SignUp = ({ values, errors, touched, status }) => {
               name="username"
               type="text"
               placeholder="Username"
+              value={userState.username}
+              onChange={handleChanges}
               />
               {touched.username && errors.username && (<p>{errors.username}</p>)}
 
@@ -38,6 +72,8 @@ const SignUp = ({ values, errors, touched, status }) => {
               name="email"
               type="email"
               placeholder="Email"
+              value={userState.email}
+              onChange={handleChanges}
               />
               {touched.email && errors.email && (<p>{errors.email}</p>)}
 
@@ -45,6 +81,8 @@ const SignUp = ({ values, errors, touched, status }) => {
               name="password"
               type="password"
               placeholder="Password"
+              value={userState.password}
+              onChange={handleChanges}
               />
               {touched.password && errors.password && (<p>{errors.password}</p>)}
 
@@ -52,6 +90,8 @@ const SignUp = ({ values, errors, touched, status }) => {
               name="address"
               type="text"
               placeholder="Address"
+              value={userState.address}
+              onChange={handleChanges}
               />
               {touched.address && errors.address && (<p>{errors.address}</p>)}
 
@@ -59,6 +99,8 @@ const SignUp = ({ values, errors, touched, status }) => {
               name="phone"
               type="tel"
               placeholder="Phone Number"
+              value={userState.phone}
+              onChange={handleChanges}
               />
               {touched.phone && errors.phone && (<p>{errors.phone}</p>)}
 
@@ -66,6 +108,8 @@ const SignUp = ({ values, errors, touched, status }) => {
               name="airport"
               type="text"
               placeholder="Airport"
+              value={userState.airport}
+              onChange={handleChanges}
               />
               {touched.airport && errors.airport && (<p>{errors.airport}</p>)}
               <button type="submit">Sign Up</button>
