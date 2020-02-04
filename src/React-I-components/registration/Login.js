@@ -4,7 +4,7 @@ import * as Yup from "yup";
 
 const LogIn = ({values, errors, touched, status}) => {
   const handleSubmit = event => {
-    event.perventDefault();
+    event.preventDefault();
   }
 
 return (
@@ -24,7 +24,7 @@ return (
       type="password"
       placeholder="password"
       />
-      {touched.password && errors.password (<p>{errors.password}</p>)}
+      {touched.password && errors.password && (<p>{errors.password}</p>)}
       <button type="submit">Log In</button>
     
     </Form>
