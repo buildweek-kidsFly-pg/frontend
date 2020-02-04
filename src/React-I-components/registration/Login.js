@@ -1,9 +1,12 @@
 import React, {useState}  from "react";
 import {withFormik, Form, Field} from "formik";
 import * as Yup from "yup";
-
+import styled from "styled-components";
 import axiosWithAuth from "../../components/Auth/axiosWithAuth";
 
+// const login = styled.div`
+// background: re;
+// `
 
 const LogIn = ({values, errors, touched, status}, props) => {
   // REACT II
