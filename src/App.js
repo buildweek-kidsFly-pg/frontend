@@ -7,6 +7,8 @@ import LogIn from "./React-I-components/registration/Login";
 import SignUp from "./React-I-components/registration/Signup";
 import AssistSignUp from "./React-I-components/registration/AssistSignUp";
 
+import PrivateRoute from "./components/Auth/PrivateRoute";
+
 function App() {
   return (
     <div className="App">
