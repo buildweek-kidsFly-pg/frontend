@@ -2,7 +2,6 @@ import React from "react";
 import {withFormik, Form, Field} from "formik";
 import * as Yup from "yup";
 
-
 const AssistSignUp = ({ values, errors, touched, status }) => {
   const handleSubmit = event => {
       event.preventDefault();
@@ -68,7 +67,6 @@ const AssistSignUp = ({ values, errors, touched, status }) => {
       </div>
   )
 }
-
 
 const FormikAssistSignUp = withFormik({
  

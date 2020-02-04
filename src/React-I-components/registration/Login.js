@@ -1,14 +1,11 @@
 import React  from "react";
-
 import {withFormik, Form, Field} from "formik";
 import * as Yup from "yup";
-
 
 const LogIn = ({values, errors, touched, status}) => {
   const handleSubmit = event => {
     event.perventDefault();
   }
-
 
 return (
   <div className="login">
@@ -30,9 +27,6 @@ return (
       {touched.password && errors.password (<p>{errors.password}</p>)}
       <button type="submit">Log In</button>
     
-     
-      
-
     </Form>
   </div>
 )

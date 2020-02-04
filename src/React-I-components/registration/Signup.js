@@ -1,8 +1,6 @@
 import React from "react";
-
 import {withFormik, Form, Field} from "formik";
 import * as Yup from "yup";
-
 
 const SignUp = ({ values, errors, touched, status }) => {
   const handleSubmit = event => {
@@ -71,13 +69,11 @@ const SignUp = ({ values, errors, touched, status }) => {
               />
               {touched.airport && errors.airport && (<p>{errors.airport}</p>)}
               <button type="submit">Sign Up</button>
-              
-              
+               
           </Form>
       </div>
   )
 }
-
 
 const FormikSignUp = withFormik({
  
