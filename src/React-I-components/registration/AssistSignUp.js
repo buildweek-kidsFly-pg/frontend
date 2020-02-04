@@ -1,19 +1,18 @@
 import React from "react";
-
 import {withFormik, Form, Field} from "formik";
 import * as Yup from "yup";
 
 
-const SignUp = ({ values, errors, touched, status }) => {
+const AssistSignUp = ({ values, errors, touched, status }) => {
   const handleSubmit = event => {
       event.preventDefault();
   }
 
   return (
-      <div className='registration'>
+      <div className="registration">
           
           <Form onSubmit={handleSubmit}>
-              <h2>Sign Up</h2>
+              <h2>Assistant Sign Up</h2>
               
               <Field 
               name="firstName"
@@ -51,13 +50,6 @@ const SignUp = ({ values, errors, touched, status }) => {
               {touched.password && errors.password && (<p>{errors.password}</p>)}
 
               <Field
-              name="address"
-              type="text"
-              placeholder="Address"
-              />
-              {touched.address && errors.address && (<p>{errors.address}</p>)}
-
-              <Field
               name="phone"
               type="tel"
               placeholder="Phone Number"
@@ -67,11 +59,10 @@ const SignUp = ({ values, errors, touched, status }) => {
               <Field 
               name="airport"
               type="text"
-              placeholder="Airport"
+              placeholder="Home Airport"
               />
               {touched.airport && errors.airport && (<p>{errors.airport}</p>)}
               <button type="submit">Sign Up</button>
-              
               
           </Form>
       </div>
@@ -79,7 +70,7 @@ const SignUp = ({ values, errors, touched, status }) => {
 }
 
 
-const FormikSignUp = withFormik({
+const FormikAssistSignUp = withFormik({
  
   validationSchema: Yup.object().shape({
       firstName: Yup.string().required("Please enter your first name."),
@@ -87,10 +78,9 @@ const FormikSignUp = withFormik({
       username: Yup.string().required("Please enter your username."),
       email: Yup.string().email("Please provide a valid email address").required("Please enter your email address."),
       password: Yup.string().min(6, "Password must be at least 6 characters").required("Please enter your password."),
-      address: Yup.string().required("Please enter your address."),
       phone: Yup.string().min(10, "Please enter your ten digit phone number.").required("Please enter your ten digit phone number."),
       airport: Yup.string().required("Please enter your aiport location.")
   })
-})(SignUp)
+})(AssistSignUp)
 
-export default FormikSignUp; 
+export default FormikAssistSignUp; 
