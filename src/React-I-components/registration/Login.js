@@ -62,10 +62,30 @@ return (
 }
 
 const FormikLogIn = withFormik({
+  mapPropsToValues({username, password}){
+    return {
+      username: username || "",
+      password: password || "",
+    };
+  },
+
   validationSchema: Yup.object().shape({
     username: Yup.string().required("Please enter your username."),
     password: Yup.string().required("Please enter your password")
-  })
+  }),
+  
+  // handleSubmit(values, {props, setState}) {
+  //   axios
+  //   .post("", values)
+  //   .then(response => {
+  //     setStatus(response.data);
+  //     console.log(response);
+  //     localStorage.setItem("token", response.data.token);
+  //     localStorage.setItem("username", response.data.username);
+  //     props.history.push(``)
+  //   })
+  //   .catch(error => console.log(error.response));
+  // }
 })(LogIn)
 
 export default FormikLogIn
