@@ -4,36 +4,33 @@ import * as Yup from "yup";
 
 import { connect } from 'react-redux';
 import { login } from '../../actions/Login';
-import axiosWithAuth from '../../components/Auth/axiosWithAuth';
 
 
 
-const LogIn = ({values, errors, touched, status}) => {
-  // REACT II
-  const [userState, setUserState] = useState({
+const LogIn = ({values, errors, touched, status, ...props}) => {
+
+  const [userState, setUserState] = useState({ 
     username:'',
     password:''
   });
 
-  const handleSubmit = (event, ...props) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    // // REACT II
-    axiosWithAuth()
-      .post('https://kidsfly-lambda.herokuapp.com/api/auth/p-login', userState) 
-      .then(res => {
-        console.log(res);
-        window.localStorage.setItem("token", res.data.token);
-        props.history.push('/admin')
-      })
-      .catch(err => console.log(err));
-  }
+    props.login(userState)
+    .then(()=> 
+      console.log('WOOHOO, LOGGED IN!!!'),
+      props.history.push('/parent')  
+    );
+    setUserState({
+      username:'',
+      password:''
+    });
+  };
 
   const handleChanges = e => {
     setUserState({...userState, [e.target.name]: e.target.value})
   }
 
-  
-  
 
 return (
   <div className="login">

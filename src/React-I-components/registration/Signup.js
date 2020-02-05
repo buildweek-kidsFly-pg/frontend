@@ -19,7 +19,7 @@ const SignUp = ({ values, errors, touched, status, ...props }) => {
     
     const handleSubmit = event => {
       event.preventDefault();
-      props.addUser(userState).then(() => props.history.push('/'));
+      props.addUser(userState).then(() => props.history.push('/parent'));
       setUserState({
         username:'',
         password: ''
