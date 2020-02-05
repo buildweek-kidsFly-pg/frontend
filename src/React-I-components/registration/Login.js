@@ -1,20 +1,15 @@
 import React, {useState}  from "react";
 import {withFormik, Form, Field} from "formik";
-import * as Yup from "yup";
 import './registration.scss';
+import * as Yup from "yup";
 import { connect } from 'react-redux';
 import { login } from '../../actions/Login';
-
-
-
 const LogIn = ({values, errors, touched, status, ...props}) => {
-
   const [userState, setUserState] = useState({ 
-    username:'',
+    email:'',
     password:''
   });
-
-  const handleSubmit = (event) => {
+  const handleSubmit = (event) => { 
     event.preventDefault();
     props.login(userState)
     .then(()=> 
@@ -22,30 +17,25 @@ const LogIn = ({values, errors, touched, status, ...props}) => {
       props.history.push('/parent')  
     );
     setUserState({
-      username:'',
-      password:''
+      email:'',
+      password:'' 
     });
   };
-
   const handleChanges = e => {
     setUserState({...userState, [e.target.name]: e.target.value})
   }
-
-
 return (
-  <div className="registration">
+  <div className="login">
     <Form onSubmit={handleSubmit}>
       <h2>Log In</h2>
-
-      <Field className="login"
-        name="username"
+      <Field
+        name="email"
         type="text"
-        placeholder="Username"
-        value={userState.username}
+        placeholder="email"
+        value={userState.email}
         onChange={handleChanges}
       />
-      {touched.username && errors.username && (<p>{errors.username}</p>)}
-
+      {touched.email && errors.email && (<p>{errors.email}</p>)}
       <Field
         name="password"
         type="password"
@@ -55,12 +45,10 @@ return (
       />
       {touched.password && errors.password && (<p>{errors.password}</p>)}
       <button type="submit">Log In</button>
-    
     </Form>
   </div>
 )
 }
-
 const FormikLogIn = withFormik({
   mapPropsToValues({username, password}){
     return {
@@ -68,12 +56,10 @@ const FormikLogIn = withFormik({
       password: password || "",
     };
   },
-
   validationSchema: Yup.object().shape({
     username: Yup.string().required("Please enter your username."),
     password: Yup.string().required("Please enter your password")
   }),
-  
   // handleSubmit(values, {props, setState}) {
   //   axios
   //   .post("", values)
@@ -87,13 +73,11 @@ const FormikLogIn = withFormik({
   //   .catch(error => console.log(error.response));
   // }
 })(LogIn)
-
 const mapStateToProps = state => {
   return {
     loggedIn: state.auth.loggedIn
   };
 };
-
 export default connect(
   null,
   { login }
