@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.css';
+import styled from "styled-components";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import Logo from "../src/img/kidsfly.png";
 
 //COMPONENTS
 import LogIn from "./React-I-components/registration/Login";
@@ -10,18 +12,37 @@ import ParentProfile from './components/ParentProfile';
 
 import PrivateRoute from "./components/Auth/PrivateRoute";
 
+const KidsFly = styled.h1`
+background:#00C4EE;
+padding:1%;
+width: 100%;
+margin:0 auto;
+color: white;
+`
+
 function App() {
   return (
     <Router>
       <div className="App">
-        <h1>
+        <div className="header">
+        <KidsFly className="headertest">
           Kids Fly App
-        </h1>
-        <li>
+          <div className="logo">
+          <img src={Logo} alt="KidsFly logo"/>
+        </div>
+        </KidsFly>
+        </div>
+        
+        <div className="btncontainer">
+        <button className="regbtn">
           <Link to="/register">Register</Link><br></br>
+          </button>
+          <button className="logbtn">
             <Link to="/login">Login</Link><br></br>
             {/* <Link to="/admin">Admin Dashboard</Link> */}
-          </li>
+          </button>
+          </div>
+          
       {/* <SignUp/>
       <AssistSignUp/> */}
       <Route path="/register" component={SignUp} /> 
