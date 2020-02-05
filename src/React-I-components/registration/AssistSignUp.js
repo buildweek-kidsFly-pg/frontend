@@ -1,6 +1,7 @@
 import React from "react";
 import {withFormik, Form, Field} from "formik";
 import * as Yup from "yup";
+import {Input} from 'reactstrap';
 
 const AssistSignUp = ({ values, errors, touched, status }) => {
   const handleSubmit = event => {
@@ -8,7 +9,7 @@ const AssistSignUp = ({ values, errors, touched, status }) => {
   }
 
   return (
-      <div className="registration">
+      <div className="assistlogin">
           
           <Form onSubmit={handleSubmit}>
               <h2>Assistant Sign Up</h2>
@@ -18,14 +19,14 @@ const AssistSignUp = ({ values, errors, touched, status }) => {
               type="text"
               placeholder="First Name"
               />
-              {touched.firstName && errors.firstName && (<p>{errors.firstName}</p>)}
+              {touched.first_name && errors.first_name && (<p>{errors.first_name}</p>)}
 
               <Field 
               name="last_name"
               type="text"
               placeholder="Last Name"
               />
-              {touched.lastName && errors.lastName && (<p>{errors.lastName}</p>)}
+              {touched.last_name && errors.last_name && (<p>{errors.last_name}</p>)}
 
               <Field 
               name="email"
@@ -53,8 +54,15 @@ const AssistSignUp = ({ values, errors, touched, status }) => {
               type="text"
               placeholder="Home Airport"
               />
-              {touched.airport && errors.airport && (<p>{errors.airport}</p>)}
-              <button type="submit">Sign Up</button>
+              {touched.a_home_airport && errors.a_home_airport && (<p>{errors.a_home_airport}</p>)}
+              <div className="assisbtn">
+              <Input type="select">
+              <option value={false}>Not Available</option>
+              <option value={true}>Available</option>
+              </Input>
+              <button className="btnsign" type="submit">Sign Up</button>
+              </div>
+              
               
           </Form>
       </div>
