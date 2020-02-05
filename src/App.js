@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import LogIn from "./React-I-components/registration/Login";
 import SignUp from "./React-I-components/registration/Signup";
 import AssistSignUp from "./React-I-components/registration/AssistSignUp";
-import AdminProfile from './components/AdminProfile';
+import ParentProfile from './components/ParentProfile';
 
 import PrivateRoute from "./components/Auth/PrivateRoute";
 
@@ -24,9 +24,9 @@ function App() {
           </li>
       {/* <SignUp/>
       <AssistSignUp/> */}
-      <Route exact path="/register" component={SignUp} />
-      <Route exact path="/login" component={LogIn}/>
-      <PrivateRoute exact path="/admin" component={AdminProfile}/>
+      <Route path="/register" component={SignUp} /> 
+      <Route path="/login" component={LogIn}/>
+      <PrivateRoute exact path="/parent" component={ParentProfile}/>
       </div>
     </Router>
   );

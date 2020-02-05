@@ -1,10 +1,11 @@
 import React, {useState} from "react";
 import {withFormik, Form, Field} from "formik";
 import * as Yup from "yup";
+import {connect} from 'react-redux';
 
-import axios from 'axios';
+import { addUser } from '../../actions/Register';
 
-const SignUp = ({ values, errors, touched, status }, props) => {
+const SignUp = ({ values, errors, touched, status, ...props }) => {
     const [userState, setUserState] = useState({
         firstName:'',
         lastName:'',
@@ -16,22 +17,18 @@ const SignUp = ({ values, errors, touched, status }, props) => {
         airport:''
     });
     
-      const handleSubmit = event => {
-        event.preventDefault();
-        // REACT II
-        axios
-          .post('https://reqres.in/api/users', userState)
-          .then(res => {
-            console.log(res);
-            window.localStorage.setItem("token", res.data.payload);
-            props.history.push('/admin')
-          })
-          .catch(err => console.log(err));
-        }
-        
-        const handleChanges = e => {
-            setUserState({...userState, [e.target.name]: e.target.value});
-        }
+    const handleSubmit = event => {
+      event.preventDefault();
+      props.addUser(userState).then(() => props.history.push('/parent'));
+      setUserState({
+        username:'',
+        password: ''
+      })
+    }
+      
+    const handleChanges = e => {
+        setUserState({...userState, [e.target.name]: e.target.value});
+    }
     
 
   return (
@@ -133,4 +130,7 @@ const FormikSignUp = withFormik({
   })
 })(SignUp)
 
-export default FormikSignUp; 
+export default connect(
+  null,
+  {addUser}
+)(FormikSignUp);
