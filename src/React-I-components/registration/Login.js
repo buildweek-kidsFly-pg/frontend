@@ -47,7 +47,7 @@ return (
         onChange={handleChanges}
       />
       {touched.password && errors.password && (<p>{errors.password}</p>)}
-      <button type="submit">Log In</button>
+      <button className="btnlog" type="submit">Log In</button>
     </Form>
   </div>
 )

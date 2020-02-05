@@ -26,7 +26,7 @@ const SignUp = ({ values, errors, touched, status, ...props }) => {
         setUserState({...userState, [e.target.name]: e.target.value});
     }
   return (
-      <div className='registration'>
+      <div className='signup'>
           <Form onSubmit={handleSubmit}>
               <h2>Sign Up</h2>
               <Field 
@@ -87,7 +87,7 @@ const SignUp = ({ values, errors, touched, status, ...props }) => {
               onChange={handleChanges}
               />
               {touched.p_home_airport && errors.p_home_airport && (<p>{errors.p_home_airport}</p>)}
-              <button type="submit">Sign Up</button>
+              <button className="btnsign" type="submit">Sign Up</button>
           </Form>
       </div>
   )
