@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {withFormik, Form, Field} from "formik";
 import * as Yup from "yup";
-
+import './Registration.scss';
 import axios from 'axios';
 
 const SignUp = ({ values, errors, touched, status }, props) => {
@@ -37,11 +37,11 @@ const SignUp = ({ values, errors, touched, status }, props) => {
   return (
       <div className='registration'>
           
-          <Form onSubmit={handleSubmit}>
+          <Form className="signup" onSubmit={handleSubmit}>
               <h2>Sign Up</h2>
               
               <Field 
-              name="firstName"
+              name="first_name"
               type="text" 
               placeholder="First Name"
               onChange={handleChanges}
@@ -50,7 +50,7 @@ const SignUp = ({ values, errors, touched, status }, props) => {
               {touched.firstName && errors.firstName && (<p>{errors.firstName}</p>)}
 
               <Field 
-              name="lastName"
+              name="last_name"
               type="text"
               placeholder="Last Name"
               value={userState.lastName}
@@ -58,15 +58,6 @@ const SignUp = ({ values, errors, touched, status }, props) => {
 
               />
               {touched.lastName && errors.lastName && (<p>{errors.lastName}</p>)}
-
-              <Field 
-              name="username"
-              type="text"
-              placeholder="Username"
-              value={userState.username}
-              onChange={handleChanges}
-              />
-              {touched.username && errors.username && (<p>{errors.username}</p>)}
 
               <Field 
               name="email"
@@ -105,9 +96,9 @@ const SignUp = ({ values, errors, touched, status }, props) => {
               {touched.phone && errors.phone && (<p>{errors.phone}</p>)}
 
               <Field 
-              name="airport"
+              name="p_home_airport"
               type="text"
-              placeholder="Airport"
+              placeholder="Home Airport"
               value={userState.airport}
               onChange={handleChanges}
               />
@@ -122,14 +113,13 @@ const SignUp = ({ values, errors, touched, status }, props) => {
 const FormikSignUp = withFormik({
  
   validationSchema: Yup.object().shape({
-      firstName: Yup.string().required("Please enter your first name."),
-      lastName: Yup.string().required("Please enter your last name."),
-      username: Yup.string().required("Please enter your username."),
+      first_name: Yup.string().required("Please enter your first name."),
+      last_name: Yup.string().required("Please enter your last name."),
       email: Yup.string().email("Please provide a valid email address").required("Please enter your email address."),
       password: Yup.string().min(6, "Password must be at least 6 characters").required("Please enter your password."),
       address: Yup.string().required("Please enter your address."),
       phone: Yup.string().min(10, "Please enter your ten digit phone number.").required("Please enter your ten digit phone number."),
-      airport: Yup.string().required("Please enter your aiport location.")
+      p_home_airport: Yup.string().required("Please enter your aiport location.")
   })
 })(SignUp)
 
