@@ -1,6 +1,6 @@
 import React, {useState}  from "react";
 import {withFormik, Form, Field} from "formik";
-import './registration.scss';
+import './Registration.scss';
 import * as Yup from "yup";
 import { connect } from 'react-redux';
 import { login } from '../../actions/Login';
