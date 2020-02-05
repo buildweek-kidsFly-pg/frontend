@@ -1,7 +1,7 @@
 import { LOGIN_START, LOGIN_SUCCESS, LOGIN_FAILURE } from '../actions';
 
 const initialState = {
-  users: [],
+  user: {},
   isLogging: false,
   error: '',
   loggedIn: false,
@@ -17,19 +17,19 @@ export const loginReducer = (state = initialState, action) => {
         error: '',
         loggedIn: false
       };
-    case LOGIN_SUCCESS:
+    case LOGIN_SUCCESS: 
       return {
         ...state,
         isLogging: false,
-        error: '',
-        users: payload,
+        error: action.payload,
+        users: action.payload.data,
         loggedIn: true
       };
     case LOGIN_FAILURE:
       return {
         ...state,
         isLogging: false,
-        error: payload,
+        error: action.payload,
         loggedIn: false
       };
     default:

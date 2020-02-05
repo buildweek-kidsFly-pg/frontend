@@ -43,8 +43,10 @@ const SignUp = ({ values, errors, touched, status, ...props }) => {
               placeholder="Last Name"
               value={userState.last_name}
               onChange={handleChanges}
+
               />
               {touched.last_name && errors.last_name && (<p>{errors.last_name}</p>)}
+
               <Field 
               name="email"
               type="email"

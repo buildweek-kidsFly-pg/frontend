@@ -1,7 +1,10 @@
 import { REGISTER_START, REGISTER_SUCCESS, REGISTER_FAILURE } from '../actions';
 
 const initialState  = {
-    users: [],
+    // users: {
+      user:{},
+      newUser: {},
+    //},
     registering: false,
     error: ''
 }
@@ -17,15 +20,16 @@ export const registerReducer = ( state = initialState, action) => {
     case REGISTER_SUCCESS:
       return {
         ...state,
+        user: action.payload.data,
         registering: false,
-        error: '',
-        users: payload
+        error: action.payload, 
+        newUser: action.payload.data
       };
     case REGISTER_FAILURE:
       return {
         ...state,
         registering: false,
-        error: payload
+        error: action.payload
       };
     default:
       return state;
