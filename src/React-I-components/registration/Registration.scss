@@ -55,7 +55,7 @@ h2 {
     }
 }
 
-.login {
+.LogIn {
     display: flex;
     flex-direction: column;
     width: 350px;
@@ -85,9 +85,33 @@ h2 {
 }
 
 .btncontainer {
+    // display: flex;
+    // justify-content: space-evenly;
+    // padding-top: 5%;
     display: flex;
-    justify-content: space-evenly;
-    padding-top: 5%;
+    justify-content: space-around;
+    width: 55%;
+    margin: 3% auto;
+}
+
+button {
+    width: 30%;
+    height: 40px;
+    background: #008396;
+    color: white;
+    border: solid, 2px, #00C4EE;
+    border-radius: 5px;
+    @media (max-width: $phone) {
+        width: 50%;
+    }
+    &:hover {
+        background: lightblue;
+        color: #4F4E51;
+    }
+}
+
+Link {
+    text-decoration: none;
 }
 
 .error {

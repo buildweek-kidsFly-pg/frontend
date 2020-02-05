@@ -1,17 +1,7 @@
 import React, {useState}  from "react";
 import {withFormik, Form, Field} from "formik";
 import * as Yup from "yup";
-<<<<<<< HEAD
-import axiosWithAuth from "../../components/Auth/axiosWithAuth";
-
-
-
-
-const LogIn = ({values, errors, touched, status}, props) => {
-  // REACT II
-  const [userState, setUserState] = useState({
-=======
-
+import './registration.scss';
 import { connect } from 'react-redux';
 import { login } from '../../actions/Login';
 
@@ -20,7 +10,6 @@ import { login } from '../../actions/Login';
 const LogIn = ({values, errors, touched, status, ...props}) => {
 
   const [userState, setUserState] = useState({ 
->>>>>>> 159521da31e8a59212fb78c34b8320c6aba7697c
     username:'',
     password:''
   });

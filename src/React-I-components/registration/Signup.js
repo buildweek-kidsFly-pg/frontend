@@ -1,14 +1,9 @@
 import React, {useState} from "react";
 import {withFormik, Form, Field} from "formik";
 import * as Yup from "yup";
-<<<<<<< HEAD
-import './Registration.scss';
-import axios from 'axios';
-=======
 import {connect} from 'react-redux';
-
+import './registration.scss';
 import { addUser } from '../../actions/Register';
->>>>>>> 159521da31e8a59212fb78c34b8320c6aba7697c
 
 const SignUp = ({ values, errors, touched, status, ...props }) => {
     const [userState, setUserState] = useState({
