@@ -17,3 +17,18 @@ const store = createStore(
   );
 
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root')); 
+
+
+
+//parents - register
+//https://kidsfly-lambda.herokuapp.com/api/auth/p-register
+
+
+//parent - login 
+//https://kidsfly-lambda.herokuapp.com/api/auth/p-login
+
+//assistant - register  
+// /https://kidsfly-lambda.herokuapp.com/api/auth/a-register
+
+//assistant - login
+//https://kidsfly-lambda.herokuapp.com/api/auth/a-login

@@ -7,14 +7,13 @@ import { addUser } from '../../actions/Register';
 
 const SignUp = ({ values, errors, touched, status, ...props }) => {
     const [userState, setUserState] = useState({
-        firstName:'',
-        lastName:'',
-        username:'',
+        first_name:'',
+        last_name:'',
         email:'',
         password: '',
         address:'',
         phone:'',
-        airport:''
+        p_home_airport:''
     });
     
     const handleSubmit = event => {
@@ -38,32 +37,23 @@ const SignUp = ({ values, errors, touched, status, ...props }) => {
               <h2>Sign Up</h2>
               
               <Field 
-              name="firstName"
+              name="first_name"
               type="text" 
               placeholder="First Name"
               onChange={handleChanges}
-              value={userState.firstName}
+              value={userState.first_name}
               />
-              {touched.firstName && errors.firstName && (<p>{errors.firstName}</p>)}
+              {touched.first_name && errors.first_name && (<p>{errors.first_name}</p>)}
 
               <Field 
-              name="lastName"
+              name="last_name"
               type="text"
               placeholder="Last Name"
-              value={userState.lastName}
+              value={userState.last_name}
               onChange={handleChanges}
 
               />
-              {touched.lastName && errors.lastName && (<p>{errors.lastName}</p>)}
-
-              <Field 
-              name="username"
-              type="text"
-              placeholder="Username"
-              value={userState.username}
-              onChange={handleChanges}
-              />
-              {touched.username && errors.username && (<p>{errors.username}</p>)}
+              {touched.last_name && errors.last_name && (<p>{errors.last_name}</p>)}
 
               <Field 
               name="email"
@@ -102,13 +92,13 @@ const SignUp = ({ values, errors, touched, status, ...props }) => {
               {touched.phone && errors.phone && (<p>{errors.phone}</p>)}
 
               <Field 
-              name="airport"
+              name="p_home_airport"
               type="text"
               placeholder="Airport"
-              value={userState.airport}
+              value={userState.p_home_airport}
               onChange={handleChanges}
               />
-              {touched.airport && errors.airport && (<p>{errors.airport}</p>)}
+              {touched.p_home_airport && errors.p_home_airport && (<p>{errors.p_home_airport}</p>)}
               <button type="submit">Sign Up</button>
                
           </Form>

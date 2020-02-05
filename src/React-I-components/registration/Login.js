@@ -10,7 +10,7 @@ import { login } from '../../actions/Login';
 const LogIn = ({values, errors, touched, status, ...props}) => {
 
   const [userState, setUserState] = useState({ 
-    username:'',
+    email:'',
     password:''
   });
 
@@ -22,8 +22,8 @@ const LogIn = ({values, errors, touched, status, ...props}) => {
       props.history.push('/parent')  
     );
     setUserState({
-      username:'',
-      password:''
+      email:'',
+      password:'' 
     });
   };
 
@@ -38,13 +38,13 @@ return (
       <h2>Log In</h2>
 
       <Field
-        name="username"
+        name="email"
         type="text"
-        placeholder="Username"
-        value={userState.username}
+        placeholder="email"
+        value={userState.email}
         onChange={handleChanges}
       />
-      {touched.username && errors.username && (<p>{errors.username}</p>)}
+      {touched.email && errors.email && (<p>{errors.email}</p>)}
 
       <Field
         name="password"

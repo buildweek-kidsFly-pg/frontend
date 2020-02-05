@@ -7,13 +7,13 @@ export  const addUser = user => dispatch => {
     return axios 
     .post('https://kidsfly-lambda.herokuapp.com/api/auth/p-register', user)
     .then(res => {
-        console.log(res);
+        console.log('RESULT',res);
 
-        dispatch({ type: REGISTER_SUCCESS, payload: res.data});
+        dispatch({ type: REGISTER_SUCCESS, payload: user}); 
     })
-    .catch(err => {
+    .catch(err => { 
         console.log(err)
-        dispatch({ type: REGISTER_FAILURE, payload: err.data });
+        dispatch({ type: REGISTER_FAILURE, payload: user });
     });
 }
 
