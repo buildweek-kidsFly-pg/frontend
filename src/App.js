@@ -8,7 +8,12 @@ import Logo from "../src/img/kidsfly.png";
 import LogIn from "./React-I-components/registration/Login";
 import SignUp from "./React-I-components/registration/Signup";
 import AssistSignUp from "./React-I-components/registration/AssistSignUp";
+<<<<<<< HEAD
 import AdminProfile from './components/AdminProfile';
+=======
+import ParentProfile from './components/ParentProfile';
+
+>>>>>>> 159521da31e8a59212fb78c34b8320c6aba7697c
 import PrivateRoute from "./components/Auth/PrivateRoute";
 
 const KidsFly = styled.h1`
@@ -44,9 +49,9 @@ function App() {
           
       {/* <SignUp/>
       <AssistSignUp/> */}
-      <Route exact path="/register" component={SignUp} />
-      <Route exact path="/login" component={LogIn}/>
-      <PrivateRoute exact path="/admin" component={AdminProfile}/>
+      <Route path="/register" component={SignUp} /> 
+      <Route path="/login" component={LogIn}/>
+      <PrivateRoute exact path="/parent" component={ParentProfile}/>
       </div>
     </Router>
   );

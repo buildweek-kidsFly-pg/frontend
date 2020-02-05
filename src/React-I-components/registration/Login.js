@@ -1,6 +1,7 @@
 import React, {useState}  from "react";
 import {withFormik, Form, Field} from "formik";
 import * as Yup from "yup";
+<<<<<<< HEAD
 import axiosWithAuth from "../../components/Auth/axiosWithAuth";
 
 
@@ -9,22 +10,33 @@ import axiosWithAuth from "../../components/Auth/axiosWithAuth";
 const LogIn = ({values, errors, touched, status}, props) => {
   // REACT II
   const [userState, setUserState] = useState({
+=======
+
+import { connect } from 'react-redux';
+import { login } from '../../actions/Login';
+
+
+
+const LogIn = ({values, errors, touched, status, ...props}) => {
+
+  const [userState, setUserState] = useState({ 
+>>>>>>> 159521da31e8a59212fb78c34b8320c6aba7697c
     username:'',
     password:''
   });
 
-  const handleSubmit = event => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    // // REACT II
-    axiosWithAuth()
-      .post('https://reqres.in/api/users', userState)
-      .then(res => {
-        console.log(res);
-        window.localStorage.setItem("token", res.data.payload);
-        props.history.push('/admin')
-      })
-      .catch(err => console.log(err));
-  }
+    props.login(userState)
+    .then(()=> 
+      console.log('WOOHOO, LOGGED IN!!!'),
+      props.history.push('/parent')  
+    );
+    setUserState({
+      username:'',
+      password:''
+    });
+  };
 
   const handleChanges = e => {
     setUserState({...userState, [e.target.name]: e.target.value})
@@ -87,4 +99,13 @@ const FormikLogIn = withFormik({
   // }
 })(LogIn)
 
-export default FormikLogIn
+const mapStateToProps = state => {
+  return {
+    loggedIn: state.auth.loggedIn
+  };
+};
+
+export default connect(
+  null,
+  { login }
+)(FormikLogIn);
