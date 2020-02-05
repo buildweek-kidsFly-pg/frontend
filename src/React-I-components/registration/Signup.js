@@ -11,7 +11,7 @@ const SignUp = ({ values, errors, touched, status, ...props }) => {
         last_name:'',
         email:'',
         password: '',
-        address:'',
+        address:'', 
         phone:'',
         p_home_airport:''
     });

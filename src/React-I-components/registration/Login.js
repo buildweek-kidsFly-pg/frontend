@@ -14,7 +14,7 @@ const LogIn = ({values, errors, touched, status, ...props}) => {
     password:''
   });
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event) => { 
     event.preventDefault();
     props.login(userState)
     .then(()=> 
