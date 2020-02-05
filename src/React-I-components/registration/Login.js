@@ -2,24 +2,27 @@ import React, {useState}  from "react";
 import {withFormik, Form, Field} from "formik";
 import * as Yup from "yup";
 
-import axiosWithAuth from "../../components/Auth/axiosWithAuth";
+import { connect } from 'react-redux';
+import { login } from '../../actions/Login';
+import axiosWithAuth from '../../components/Auth/axiosWithAuth';
 
 
-const LogIn = ({values, errors, touched, status}, props) => {
+
+const LogIn = ({values, errors, touched, status}) => {
   // REACT II
   const [userState, setUserState] = useState({
     username:'',
     password:''
   });
 
-  const handleSubmit = event => {
+  const handleSubmit = (event, ...props) => {
     event.preventDefault();
     // // REACT II
     axiosWithAuth()
-      .post('https://reqres.in/api/users', userState)
+      .post('https://kidsfly-lambda.herokuapp.com/api/auth/p-login', userState) 
       .then(res => {
         console.log(res);
-        window.localStorage.setItem("token", res.data.payload);
+        window.localStorage.setItem("token", res.data.token);
         props.history.push('/admin')
       })
       .catch(err => console.log(err));
@@ -88,4 +91,13 @@ const FormikLogIn = withFormik({
   // }
 })(LogIn)
 
-export default FormikLogIn
+const mapStateToProps = state => {
+  return {
+    loggedIn: state.auth.loggedIn
+  };
+};
+
+export default connect(
+  null,
+  { login }
+)(FormikLogIn);

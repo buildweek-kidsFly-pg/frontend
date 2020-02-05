@@ -24,7 +24,7 @@ function App() {
           </li>
       {/* <SignUp/>
       <AssistSignUp/> */}
-      <Route exact path="/register" component={SignUp} />
+      <Route exact path="/register" component={SignUp} /> 
       <Route exact path="/login" component={LogIn}/>
       <PrivateRoute exact path="/admin" component={AdminProfile}/>
       </div>
