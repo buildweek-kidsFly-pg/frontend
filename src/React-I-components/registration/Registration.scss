@@ -1,10 +1,4 @@
     $phone: 500px;
-    .registration {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-    }
-    
     .headertest {
         display: flex;
         flex-direction: row-reverse;
@@ -22,9 +16,8 @@
     .signup {
         display: flex;
         flex-direction: column;
+        text-align: center;
         width: 350px;
-        justify-content: space-between;
-        align-items: center;
         height: 50%;
         margin: 5% auto 10% auto;
         padding: 2% 5% 7% 5%;
@@ -51,7 +44,7 @@
             }
         }
         .btnsign {
-            width: 30%;
+            width: 50%;
             height: 40px;
             background: #008396;
             color: white;
@@ -72,6 +65,7 @@
         flex-direction: column;
         width: 350px;
         justify-content: space-between;
+        text-align: center;
         height: 30%;
         margin: 15% auto;
         padding: 1% 2%;
@@ -96,7 +90,7 @@
             }
         }
         .btnlog {
-            width: 30%;
+            width: 50%;
             height: 40px;
             background: #008396;
             color: white;
@@ -113,9 +107,6 @@
     }
     
     .btncontainer {
-        // display: flex;
-        // justify-content: space-evenly;
-        // padding-top: 5%;
         display: flex;
         justify-content: space-around;
         width: 55%;
@@ -135,8 +126,51 @@
                 color: #4F4E51;
             }
         }
-        Link {
-            text-decoration: none;
+    }
+    
+    .assistlogin {
+        display: flex;
+        flex-direction: column;
+        width: 350px;
+        justify-content: space-between;
+        text-align: center;
+        height: 30%;
+        margin: 15% auto;
+        padding: 1% 2%;
+        background-color: #00C4EE;
+        border-radius: 20px;
+        @media (max-width: $phone) {
+            margin-top: 40%;
+        }
+         ::placeholder {
+            color: white;
+        }
+        input {
+            height: 15%;
+            padding: 2%;
+            margin-bottom: 4%;
+            box-sizing: border-box;
+            border: 1px solid #015e6d;
+            background-color: #1780A9;
+            &:focus {
+                transition: 0.2s;
+                border: 3px solid white;
+            }
+        }
+        .btnsign {
+            width: 50%;
+            height: 40px;
+            background: #008396;
+            color: white;
+            border: solid, 2px, #00C4EE;
+            border-radius: 5px;
+            @media (max-width: $phone) {
+                width: 50%;
+            }
+            &:hover {
+                background: lightblue;
+                color: #4F4E51;
+            }
         }
     }
     

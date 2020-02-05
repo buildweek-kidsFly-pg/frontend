@@ -37,6 +37,9 @@ function App() {
         <button className="regbtn">
           <Link to="/register">Register</Link><br></br>
           </button>
+          <button className="assistbtn">
+            <Link to="assistsignup">Assistant Register</Link>
+            </button>
           <button className="logbtn">
             <Link to="/login">Login</Link><br></br>
             {/* <Link to="/admin">Admin Dashboard</Link> */}
@@ -47,6 +50,7 @@ function App() {
       <AssistSignUp/> */}
       <Route path="/register" component={SignUp} /> 
       <Route path="/login" component={LogIn}/>
+      <Route path="/assistsignup" component={AssistSignUp}/>
       <PrivateRoute exact path="/parent" component={ParentProfile}/>
       </div>
     </Router>
