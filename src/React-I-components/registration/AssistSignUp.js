@@ -55,6 +55,7 @@ const AssistSignUp = ({ values, errors, touched, status }) => {
               placeholder="Home Airport"
               />
               {touched.a_home_airport && errors.a_home_airport && (<p>{errors.a_home_airport}</p>)}
+              
               <div className="assisbtn">
               <Input type="select">
               <option value={false}>Not Available</option>
