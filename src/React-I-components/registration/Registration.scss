@@ -34,9 +34,8 @@
             padding: 2%;
             margin-bottom: 4%;
             box-sizing: border-box;
-            border: 1px solid #015e6d;
+            border: 1px solid #015e6d !important;
             background-color: #1780A9;
-            opacity: 90%;
             align-items: center;
             &:focus {
                 transition: 0.2s;
