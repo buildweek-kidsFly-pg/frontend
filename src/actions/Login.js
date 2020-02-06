@@ -9,8 +9,24 @@ export const login = user => dispatch => {
         .post('https://kidsfly-lambda.herokuapp.com/api/auth/p-login', user)
         .then(res => {
             console.log('RESULT',res);
-            // localStorage.setItem('token', res.data.token);
-            // dispatch({ type: LOGIN_SUCCESS, payload: res.data });
+            localStorage.setItem('token', res.data.token);
+            dispatch({ type: LOGIN_SUCCESS, payload: res.data });
+        })
+        .catch(err => {
+            dispatch({ type: LOGIN_FAILURE, payload: err });
+        }); 
+}  
+
+export const loginAssistant = assistant => dispatch => {
+    console.log('assistant', assistant);
+    dispatch({ type: LOGIN_START});
+    return axiosWithAuth()
+        //this link is for parents
+        .post('https://kidsfly-lambda.herokuapp.com/api/auth/a-login', assistant)
+        .then(res => {
+            console.log('RESULT',res);
+            localStorage.setItem('token', res.data.token);
+            dispatch({ type: LOGIN_SUCCESS, payload: res.data });
         })
         .catch(err => {
             dispatch({ type: LOGIN_FAILURE, payload: err });

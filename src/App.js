@@ -5,10 +5,12 @@ import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import Logo from "../src/img/kidsfly.png";
 
 //COMPONENTS
-import LogIn from "./React-I-components/registration/Login";
-import SignUp from "./React-I-components/registration/Signup";
+import LogIn from "./React-I-components/registration/ParentLogin";
+import SignUp from "./React-I-components/registration/ParentSignup";
 import AssistSignUp from "./React-I-components/registration/AssistSignUp";
 import ParentProfile from './components/ParentProfile';
+import AssistantProfile from './components/AssistantProfile';
+import AssistLogin from './React-I-components/registration/AssistLogin';
 
 import PrivateRoute from "./components/Auth/PrivateRoute";
 
@@ -34,24 +36,29 @@ function App() {
         </div>
         
         <div className="btncontainer">
-        <button className="regbtn">
-          <Link to="/register">Register</Link><br></br>
+          <button className="regbtn">
+            <Link to="/register">Parent Register</Link><br></br>
+          </button>
+          <button className="logbtn">
+            <Link to="/login">Parent Login</Link><br></br>
+            {/* <Link to="/admin">Admin Dashboard</Link> */}
           </button>
           <button className="assistbtn">
             <Link to="assistsignup">Assistant Register</Link>
-            </button>
-          <button className="logbtn">
-            <Link to="/login">Login</Link><br></br>
-            {/* <Link to="/admin">Admin Dashboard</Link> */}
           </button>
-          </div>
-          
-      {/* <SignUp/>
-      <AssistSignUp/> */}
-      <Route path="/register" component={SignUp} /> 
-      <Route path="/login" component={LogIn}/>
-      <Route path="/assistsignup" component={AssistSignUp}/>
-      <PrivateRoute exact path="/parent" component={ParentProfile}/>
+          <button className="assistbtn">
+            <Link to="assistlogin">Assistant Login</Link>
+          </button>
+         
+        </div>
+        <Switch>
+          <Route exact path="/register" component={SignUp} /> 
+          <Route exact path="/login" component={LogIn}/>
+          <Route exact path="/assistsignup" component={AssistSignUp}/>
+          <Route exact path="/assistlogin" component={AssistLogin}/>
+          <PrivateRoute exact path="/parent" component={ParentProfile}/>
+          <PrivateRoute exact path="/assistant" component={AssistantProfile} />
+        </Switch>
       </div>
     </Router>
   );
