@@ -9,6 +9,7 @@ import LogIn from "./React-I-components/registration/Login";
 import SignUp from "./React-I-components/registration/Signup";
 import AssistSignUp from "./React-I-components/registration/AssistSignUp";
 import ParentProfile from './components/ParentProfile';
+import AssistantProfile from './components/AssistantProfile';
 
 import PrivateRoute from "./components/Auth/PrivateRoute";
 
@@ -44,14 +45,14 @@ function App() {
             <Link to="/login">Login</Link><br></br>
             {/* <Link to="/admin">Admin Dashboard</Link> */}
           </button>
-          </div>
-          
-      {/* <SignUp/>
-      <AssistSignUp/> */}
-      <Route path="/register" component={SignUp} /> 
-      <Route path="/login" component={LogIn}/>
-      <Route path="/assistsignup" component={AssistSignUp}/>
-      <PrivateRoute exact path="/parent" component={ParentProfile}/>
+        </div>
+        <Switch>
+          <Route exact path="/register" component={SignUp} /> 
+          <Route exact path="/login" component={LogIn}/>
+          <Route exact path="/assistsignup" component={AssistSignUp}/>
+          <PrivateRoute exact path="/parent" component={ParentProfile}/>
+          <PrivateRoute exact path="/assistant" component={AssistantProfile} />
+        </Switch>
       </div>
     </Router>
   );
