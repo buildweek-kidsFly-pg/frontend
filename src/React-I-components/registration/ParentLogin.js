@@ -65,11 +65,7 @@ const FormikLogIn = withFormik({
   }),
 
 })(LogIn)
-// const mapStateToProps = state => {
-//   return {
-//     loggedIn: state.auth.loggedIn
-//   };
-// };
+
 export default connect(
   null,
   { login }
