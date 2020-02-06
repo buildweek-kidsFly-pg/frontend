@@ -11,8 +11,11 @@ import AssistSignUp from "./React-I-components/registration/AssistSignUp";
 import ParentProfile from "./components/ParentProfile";
 import AssistantProfile from "./components/AssistantProfile";
 import AssistLogin from "./React-I-components/registration/AssistLogin";
-import AuthorizationButtons from "./components/AuthorizationButtons";
+import AuthorizationButtonsRegister from "./components/AuthorizationButtonsRegister";
+import AuthorizationButtonsLogin from "./components/AuthorizationButtonsLogin";
 import AddTrip from "./components/AddTrip";
+import Registration from "./React-I-components/registration/RegistrationMain";
+import LoginComponents from "./React-I-components/registration/LoginComponents";
 
 import PrivateRoute from "./components/Auth/PrivateRoute";
 
@@ -38,7 +41,17 @@ function App() {
         </div>
 
         <Switch>
-          <Route exact path="/" component={AuthorizationButtons} />
+          <Route exact path="/" component={Registration} />
+          <Route
+            exact
+            path="/auth-register"
+            component={AuthorizationButtonsRegister}
+          />
+          <Route
+            exact
+            path="/auth-login"
+            component={AuthorizationButtonsLogin}
+          />
           <Route exact path="/register" component={SignUp} />
           <Route exact path="/login" component={LogIn} />
           <Route exact path="/assistsignup" component={AssistSignUp} />
