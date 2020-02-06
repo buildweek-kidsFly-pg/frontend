@@ -185,3 +185,49 @@
     .error {
         margin: 1% 2%;
     }
+    
+    .trips {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        width: 350px;
+        height: 50%;
+        margin: 5% auto 10% auto;
+        padding: 2% 5% 7% 5%;
+        background-color: #00C4EE;
+        border-radius: 20px;
+        @media (max-width: $phone) {
+            margin-top: 30%;
+        }
+         ::placeholder {
+            color: black;
+        }
+        input {
+            height: 8%;
+            padding: 2%;
+            margin-bottom: 4%;
+            box-sizing: border-box;
+            border: 1px solid #015e6d !important;
+            background-color: #C3FCF1;
+            align-items: center;
+            &:focus {
+                transition: 0.2s;
+                border: 3px solid white;
+            }
+        }
+        .btnsign {
+            width: 50%;
+            height: 40px;
+            background: #008396;
+            color: white;
+            border: solid, 2px, #00C4EE;
+            border-radius: 5px;
+            @media (max-width: $phone) {
+                width: 50%;
+            }
+            &:hover {
+                background: lightblue;
+                color: #4F4E51;
+            }
+        }
+    }
