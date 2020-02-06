@@ -1,28 +1,28 @@
-import { REGISTER_START, REGISTER_SUCCESS, REGISTER_FAILURE } from '../actions';
+import { REGISTER_START, REGISTER_SUCCESS, REGISTER_FAILURE } from "../actions";
 
-const initialState  = {
-    // users: {
-      user:{},
-      newUser: {},
-    //},
-    registering: false,
-    error: ''
-}
+const initialState = {
+  // users: {
+  user: {},
+  newUser: {},
+  //},
+  registering: false,
+  error: ""
+};
 
-export const registerReducer = ( state = initialState, action) => {
-    switch(action.type){
-        case REGISTER_START:
+export const registerReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case REGISTER_START:
       return {
         ...state,
         registering: true,
-        error: ''
+        error: ""
       };
     case REGISTER_SUCCESS:
       return {
         ...state,
         user: action.payload.data,
         registering: false,
-        error: action.payload, 
+        error: action.payload,
         newUser: action.payload.data
       };
     case REGISTER_FAILURE:
@@ -33,5 +33,5 @@ export const registerReducer = ( state = initialState, action) => {
       };
     default:
       return state;
-    }
-}
+  }
+};

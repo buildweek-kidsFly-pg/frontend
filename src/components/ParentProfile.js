@@ -1,10 +1,15 @@
-import React from 'react';
+import React from "react";
+import { Link } from "react-router-dom";
 
+const ParentProfile = props => {
+  return (
+    <div>
+      Welcome Parent!
+      <Link to="/add-trip">
+        <button>Add Trip</button>
+      </Link>
+    </div>
+  );
+};
 
-const ParentProfile = () => {
-    return(
-        <div>This is the Parent Profile</div>
-    );
-}
-
-export default ParentProfile
+export default ParentProfile;
