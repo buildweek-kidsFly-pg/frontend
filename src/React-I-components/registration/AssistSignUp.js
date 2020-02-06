@@ -107,14 +107,14 @@ const AssistSignUp = ({ values, errors, touched, status, ...props }) => {
 
 const FormikAssistSignUp = withFormik({
  
-  validationSchema: Yup.object().shape({
-      first_name: Yup.string().required("Please enter your first name."),
-      last_name: Yup.string().required("Please enter your last name."),
-      email: Yup.string().email("Please provide a valid email address").required("Please enter your email address."),
-      password: Yup.string().min(6, "Password must be at least 6 characters").required("Please enter your password."),
-      phone: Yup.string().min(10, "Please enter your ten digit phone number.").required("Please enter your ten digit phone number."),
-      a_home_airport: Yup.string().required("Please enter your aiport location.")
-  })
+    validationSchema: Yup.object().shape({
+        first_name: Yup.string().required("Please enter your first name."),
+        last_name: Yup.string().required("Please enter your last name."),
+        email: Yup.string().email("Please provide a valid email address").required("Please enter your email address."),
+        password: Yup.string().min(6, "Password must be at least 6 characters").required("Please enter your password."),
+        phone: Yup.string().min(10, "Please enter your ten digit phone number.").required("Please enter your ten digit phone number."),
+        a_home_airport: Yup.string().required("Please enter your aiport location.")
+    })
 })(AssistSignUp)
 
 export default connect(
