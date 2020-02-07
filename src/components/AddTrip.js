@@ -6,33 +6,35 @@ const AddTrip = () => {
       <h2>Set Up your Trip!</h2>
       <form>
         <label>Name your trip</label>
-        <br/>
+        <br />
         <input
           type="text"
           name="trip_name"
           placeholder="Add name of the trip"
         />
-        <br/>
+        <br />
         <label>How many kids are travelling with you?</label>
-        <br/>
+        <br />
         <input type="number" name="kids_traveling" />
-        <br/>
+        <br />
         <label>How many checked bags you'll be having?</label>
-        <br/>
+        <br />
         <input type="number" name="checked_bags" />
-        <br/>
+        <br />
         <label>How many carryon bags?</label>
         <input type="number" name="carryon_bags" />
-        <br/>
+        <br />
         <label>Carseats needed</label>
-        <br/>
+        <br />
         <input type="number" name="carseats" />
-        <br/>
+        <br />
         <label>Strollers needed</label>
-        <br/>
+        <br />
         <input type="number" name="strollers" />
-        <br/>
+        <br />
         <textarea name="notes">Anything else we should know?</textarea>
+        <br />
+        <button>Send request</button>
       </form>
     </div>
   );
