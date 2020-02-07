@@ -1,10 +1,8 @@
 import { REGISTER_START, REGISTER_SUCCESS, REGISTER_FAILURE } from "../actions";
 
 const initialState = {
-  // users: {
   user: {},
   newUser: {},
-  //},
   registering: false,
   error: ""
 };
