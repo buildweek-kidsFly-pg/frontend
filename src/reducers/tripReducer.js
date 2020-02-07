@@ -1,8 +1,9 @@
 import { ADDTRIP_START, ADDTRIP_SUCCESS, ADDTRIP_FAILURE } from "../actions";
 
 const initialState = {
-  trips: [],
+  trips: {},
   isPosting: false,
+  posted: false,
   error: ""
 };
 
@@ -12,20 +13,23 @@ export const tripReducer = (state = initialState, action) => {
       return {
         ...state,
         isPosting: true,
-        error: ""
+        error: "",
+        posted: false
       };
     case ADDTRIP_SUCCESS:
       return {
         ...state,
         isPosting: false,
         error: "",
-        trips: action.payload
+        trips: action.payload,
+        posted: true
       };
     case ADDTRIP_FAILURE:
       return {
         ...state,
         isPosting: false,
-        error: action.payload
+        error: action.payload,
+        posted: false
       };
     default:
       return state;
